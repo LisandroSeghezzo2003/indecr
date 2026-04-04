@@ -1,0 +1,42 @@
+url: https://LisandroSeghezzo2003.github.io/indecr/
+
+template:
+  bootstrap: 5
+  bootswatch: flatly
+
+home:
+  title: "indecr"
+  description: "Datos socioeconómicos de Argentina para R"
+
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [search, github]
+  components:
+    intro:
+      text: "Introducción"
+      href: articles/indecr.html
+
+reference:
+  - title: "IPC"
+    desc: "Índice de Precios al Consumidor"
+    contents:
+      - get_ipc
+      - ipc_chain
+  - title: "Salarios"
+    desc: "Índices de salarios y RIPTE"
+    contents:
+      - get_salarios
+  - title: "Tipo de cambio"
+    desc: "Cotizaciones del BCRA"
+    contents:
+      - get_tc
+      - get_divisas
+  - title: "Pobreza"
+    desc: "Canasta básica alimentaria y total"
+    contents:
+      - get_canasta
+  - title: "Utilidades"
+    desc: "Funciones de análisis"
+    contents:
+      - deflate
