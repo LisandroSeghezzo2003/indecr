@@ -8,6 +8,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![R-CMD-check](https://github.com/LisandroSeghezzo2003/indecr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LisandroSeghezzo2003/indecr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/LisandroSeghezzo2003/indecr/graph/badge.svg)](https://app.codecov.io/gh/LisandroSeghezzo2003/indecr)
 <!-- badges: end -->
 
 `indecr` permite acceder a datos socioeconómicos oficiales de Argentina
