@@ -60,11 +60,11 @@ ipc_chain(region = "patagonia", desde = "2020-01-01")
 
 ## Fuentes
 
-- [API Series de Tiempo](https://apis.datos.gob.ar/series/api/) —
-  Ministerio de Economía (CC-BY 4.0)
-- [API
-  BCRA](https://www.bcra.gob.ar/BCRAyVos/catalogo-de-APIs-banco-central-i.asp)
-  — Banco Central de la República Argentina
+- [API Series de
+  Tiempo](https://www.argentina.gob.ar/datos-abiertos/api-series-de-tiempo)
+  — Gobierno de la Republica Argentina
+- [API BCRA](https://www.bcra.gob.ar/apis-banco-central/) — Banco
+  Central de la República Argentina
 - [Excel
   IPC](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls)
   — INDEC
