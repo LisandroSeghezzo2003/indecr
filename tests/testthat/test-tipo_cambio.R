@@ -1,5 +1,6 @@
 test_that("get_tc devuelve tibble con columnas correctas", {
   skip_if_offline()
+  skip_on_ci()
   resultado <- get_tc(desde = "2024-01-02", hasta = "2024-01-05")
   expect_s3_class(resultado, "tbl_df")
   expect_named(resultado, c("fecha", "moneda", "valor"))
@@ -9,11 +10,13 @@ test_that("get_tc devuelve tibble con columnas correctas", {
 
 test_that("get_tc rechaza moneda invalida", {
   skip_if_offline()
+  skip_on_ci()
   expect_error(get_tc(moneda = "XXX"), "Moneda no encontrada")
 })
 
 test_that("get_divisas devuelve tibble con codigos", {
   skip_if_offline()
+  skip_on_ci()
   resultado <- get_divisas()
   expect_s3_class(resultado, "tbl_df")
   expect_named(resultado, c("codigo", "descripcion"))

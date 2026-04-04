@@ -9,6 +9,7 @@ test_that(".fetch_series rechaza mas de 40 ids", {
 
 test_that(".fetch_series devuelve tibble con columnas correctas", {
   skip_if_offline()
+  skip_on_ci()
   resultado <- .fetch_series(
     ids   = "148.3_INIVELNAL_DICI_M_26",
     desde = "2022-01-01",
@@ -22,6 +23,7 @@ test_that(".fetch_series devuelve tibble con columnas correctas", {
 
 test_that(".fetch_series devuelve tibble vacio con warning para rango sin datos", {
   skip_if_offline()
+  skip_on_ci()
   expect_warning(
     resultado <- .fetch_series(
       ids   = "148.3_INIVELNAL_DICI_M_26",
@@ -35,6 +37,7 @@ test_that(".fetch_series devuelve tibble vacio con warning para rango sin datos"
 
 test_that(".fetch_ipc_csv devuelve tibble con columnas correctas", {
   skip_if_offline()
+  skip_on_ci()
   resultado <- .fetch_ipc_csv(columnas = "ipc_nivel_general_gba")
   expect_s3_class(resultado, "tbl_df")
   expect_named(resultado, c("fecha", "serie_id", "valor"))
@@ -44,6 +47,7 @@ test_that(".fetch_ipc_csv devuelve tibble con columnas correctas", {
 
 test_that(".fetch_ipc_csv rechaza columnas inexistentes", {
   skip_if_offline()
+  skip_on_ci()
   expect_error(
     .fetch_ipc_csv(columnas = "columna_que_no_existe"),
     "Columnas no encontradas"

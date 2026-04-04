@@ -1,5 +1,6 @@
 test_that("deflate devuelve vector numerico de misma longitud", {
   skip_if_offline()
+  skip_on_ci()
   sal <- get_salarios(desde = "2022-01-01", hasta = "2022-06-01")
   resultado <- deflate(sal$valor, sal$fecha)
   expect_type(resultado, "double")
@@ -8,6 +9,7 @@ test_that("deflate devuelve vector numerico de misma longitud", {
 
 test_that("deflate con base devuelve valores en pesos de esa fecha", {
   skip_if_offline()
+  skip_on_ci()
   sal <- get_salarios(desde = "2022-01-01", hasta = "2022-06-01")
   resultado <- deflate(sal$valor, sal$fecha, base = "2022-01-01")
   # el valor de enero 2022 deflactado a base enero 2022 debe ser igual al nominal
