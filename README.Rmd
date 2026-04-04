@@ -1,0 +1,80 @@
+---
+output: github_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse  = TRUE,
+  comment   = "#>",
+  fig.path  = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# indecr <img src="man/figures/logo.png" align="right" height="139" alt="" />
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![R-CMD-check](https://github.com/LisandroSeghezzo2003/indecr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LisandroSeghezzo2003/indecr/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+`indecr` permite acceder a datos socioeconómicos oficiales de Argentina
+directamente desde R: IPC, salarios, tipo de cambio, canasta básica y
+series históricas empalmadas.
+
+## Instalación
+```{r, eval=FALSE}
+# Version de desarrollo
+remotes::install_github("LisandroSeghezzo2003/indecr")
+```
+
+## Funciones principales
+
+| Función | Descripción |
+|---|---|
+| `get_ipc()` | IPC nacional y regional, base dic 2016 |
+| `get_salarios()` | RIPTE e índices de salarios por sector |
+| `get_tc()` | Tipo de cambio oficial (API BCRA) |
+| `get_canasta()` | Canasta básica alimentaria y total |
+| `deflate()` | Convertir series nominales a reales |
+| `ipc_chain()` | Serie histórica empalmada del IPC |
+
+## Ejemplos
+
+### IPC con variación interanual
+```{r ipc, eval=FALSE}
+library(indecr)
+
+get_ipc(variacion = "interanual", desde = "2020-01-01")
+```
+
+### Salario real vs nominal
+```{r salario_real, eval=FALSE}
+sal <- get_salarios(desde = "2020-01-01")
+sal$real <- deflate(sal$valor, sal$fecha, base = "2024-01-01")
+sal
+```
+
+### Tipo de cambio oficial
+```{r tc, eval=FALSE}
+get_tc(desde = "2023-01-01")
+```
+
+### Canasta básica total
+```{r canasta, eval=FALSE}
+get_canasta(serie = "cbt_nacional", desde = "2022-01-01")
+```
+
+### Serie histórica empalmada por región
+```{r chain, eval=FALSE}
+ipc_chain(region = "patagonia", desde = "2020-01-01")
+```
+
+## Fuentes
+
+- [API Series de Tiempo](https://apis.datos.gob.ar/series/api/) —
+  Ministerio de Economía (CC-BY 4.0)
+- [API BCRA](https://www.bcra.gob.ar/BCRAyVos/catalogo-de-APIs-banco-central-i.asp) —
+  Banco Central de la República Argentina
+- [Excel IPC](https://www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_aperturas.xls) —
+  INDEC
