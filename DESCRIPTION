@@ -7,7 +7,7 @@ Description: Provides functions to download, chain, and analyze official
     Argentine time series including CPI, wages, exchange rates, and
     poverty indicators from INDEC and BCRA public APIs.
 License: MIT + file LICENSE
-URL: https://github.com/LisandroSeghezzo2003/indecr
+URL: https://github.com/LisandroSeghezzo2003/indecr,https://LisandroSeghezzo2003.github.io/indecr/
 Encoding: UTF-8
 Language: es
 Roxygen: list(markdown = TRUE)

@@ -70,6 +70,15 @@ get_canasta(serie = "cbt_nacional", desde = "2022-01-01")
 ipc_chain(region = "patagonia", desde = "2020-01-01")
 ```
 
+## Cómo contribuir
+
+Si querés contribuir con `indecr`, por favor leé la [guía de
+contribución](.github/CONTRIBUTING.md).
+
+Por favor tené en cuenta que este proyecto tiene un [Código de
+Conducta](CODE_OF_CONDUCT.md). Al participar en este proyecto acordás
+respetar sus términos.
+
 ## Fuentes
 
 - [API Series de
