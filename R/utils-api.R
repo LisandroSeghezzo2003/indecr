@@ -3,8 +3,7 @@
                           hasta    = NULL,
                           collapse = "month") {
 
-  # --- validaciones básicas ---------------------------------------------------
-  if (length(ids) == 0) stop("Deb\u00e9s proveer al menos un ID de serie.", call. = FALSE)
+  if (length(ids) == 0) stop("DebESs proveer al menos un ID de serie.", call. = FALSE)
   if (length(ids) > 40) stop("La API acepta hasta 40 series por llamada.", call. = FALSE)
 
   # --- construir URL ----------------------------------------------------------
@@ -22,7 +21,7 @@
 
   url <- httr2::request(base_url) |>
     httr2::req_url_query(!!!params) |>
-    httr2::req_user_agent("indecr R package (https://github.com/TU_USUARIO/indecr)") |>
+    httr2::req_user_agent("indecr R package (https://github.com/LisandroSeghezzo2003/indecr)") |>
     httr2::req_timeout(30) |>
     httr2::req_retry(max_tries = 3, backoff = ~ 2)
 
@@ -40,7 +39,7 @@
   if (httr2::resp_status(resp) != 200) {
     stop(
       "La API respondio con status ", httr2::resp_status(resp), ". ",
-      "Verificá los IDs de series o intentá más tarde.",
+      "Verifica los IDs de series o intenta mas tarde.",
       call. = FALSE
     )
   }
@@ -49,7 +48,7 @@
   raw <- httr2::resp_body_json(resp, simplifyVector = FALSE)
 
   if (length(raw$data) == 0) {
-    warning("La API devolvio cero filas. Revisá los IDs o el rango de fechas.",
+    warning("La API devolvio cero filas. Revisa los IDs o el rango de fechas.",
             call. = FALSE)
     return(
       tibble::tibble(fecha = as.Date(character()), serie_id = character(), valor = numeric())
@@ -91,7 +90,7 @@
   )
 
   raw <- tryCatch(
-    read.csv(csv_url, stringsAsFactors = FALSE),
+    utils::read.csv(csv_url, stringsAsFactors = FALSE),
     error = function(e) {
       stop(
         "No se pudo descargar el CSV del IPC regional: ",

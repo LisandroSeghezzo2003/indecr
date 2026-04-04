@@ -108,12 +108,12 @@ get_ipc <- function(serie     = "nacional",
     if (variacion != "ninguna") {
       raw <- raw[order(raw$fecha), ]
       raw$valor <- switch(variacion,
-                          mensual    = c(NA, diff(raw$valor) / head(raw$valor, -1) * 100),
+                          mensual    = c(NA, diff(raw$valor) / utils::head(raw$valor, -1) * 100),
                           interanual = c(rep(NA, 12), diff(raw$valor, lag = 12) /
-                                           head(raw$valor, -12) * 100),
+                                           utils::head(raw$valor, -12) * 100),
                           acumulada  = {
                             raw$anio <- as.integer(format(raw$fecha, "%Y"))
-                            ene <- tapply(raw$valor, raw$anio, head, 1)
+                            ene <- tapply(raw$valor, raw$anio, utils::head, 1)
                             val_ene <- ene[as.character(raw$anio)]
                             (raw$valor / as.numeric(val_ene) - 1) * 100
                           }
